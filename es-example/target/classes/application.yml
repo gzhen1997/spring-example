@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  elasticsearch:
+    rest:
+      uris: http://192.168.1.100:9200
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:mysql://192.168.1.100:13306/example_db?useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root

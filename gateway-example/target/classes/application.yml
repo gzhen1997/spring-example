@@ -1,0 +1,27 @@
+server:
+  port: 9100
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.100:8848
+        namespace: public
+        username: nacos
+        password: nacos
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: provider-sevice
+          uri: lb://provider-service
+          predicates:
+           - name: Path
+             args:
+              - arg0: /provider/**
+        - id: consumer-sevice
+          uri: lb://consumer-service
+          predicates:
+            - name: Path
+              args:
+                - arg0: /consumer/**

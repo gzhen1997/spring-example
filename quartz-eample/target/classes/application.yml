@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.100:13306/quartz?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
+    password: root
+
+  quartz:
+    jobStoreType: jdbc
+    scheduler-name: myScheduler
+    jdbc:
+      initialize-schema: embedded
+      schema: classpath:org/quartz/impl/jdbcjobstore/tables_mysql.sql
+#    properties: {'org.quartz.dataSource':'cust','org.quartz.dataSource.cust.driver':'com.mysql.cj.jdbc.Driver','org.quartz.dataSource.cust.URL':'jdbc:mysql://192.168.1.100:13306/quartz_2?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8','org.quartz.dataSource.cust.username':'root','org.quartz.dataSource.cust.password':'root','org.quartz.dataSource.cust.provider':'hikaricp'}

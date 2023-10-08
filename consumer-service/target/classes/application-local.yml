@@ -1,0 +1,15 @@
+server:
+  port: 9201
+spring:
+  application:
+    name: consumer-service
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.100:8848
+        namespace: public
+        username: nacos
+        password: nacos
+        metadata:
+          zone: local
