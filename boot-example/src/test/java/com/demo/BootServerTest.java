@@ -6,11 +6,16 @@ import com.demo.security.ShiroRealm;
 import com.demo.service.FatherService;
 import com.demo.service.SonService;
 import org.junit.jupiter.api.Test;
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Measurement;
+import org.openjdk.jmh.annotations.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @auther gzhen
@@ -60,6 +65,8 @@ public class BootServerTest {
         boolean add = sonServices.add(service);
         service.resolveData(sonServices);
     }
+
+
 
 
 }
