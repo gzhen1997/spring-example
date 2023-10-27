@@ -10,11 +10,17 @@ import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Measurement;
 import org.openjdk.jmh.annotations.Mode;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -69,6 +75,38 @@ public class BootServerTest {
 
 
 
+
+
+
 }
 
+@Configuration
+class PersonConfig{
 
+    @Autowired
+    private void map(ObjectProvider<Person[]> objectProvider){
+        System.out.println(objectProvider);
+    }
+}
+
+interface Person{
+    void eat();
+}
+
+@Component
+class Man implements Person{
+
+    @Override
+    public void eat() {
+        System.out.println("man :: eat");
+    }
+
+}
+@Component
+class Women implements Person{
+
+    @Override
+    public void eat() {
+        System.out.println("Women :: eat");
+    }
+}

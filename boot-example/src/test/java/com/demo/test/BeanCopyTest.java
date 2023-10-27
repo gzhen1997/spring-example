@@ -8,11 +8,14 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.util.CollectionUtils;
 
 import java.beans.PropertyDescriptor;
+import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -64,6 +67,22 @@ public class BeanCopyTest {
         System.out.println(Boolean.TRUE.equals(true));
     }
 
+    @Test
+    public void test2() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String dateStr = "2023-08-01";
+        Date date = sdf.parse(dateStr);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        System.out.println(calendar.get(Calendar.YEAR));
+    }
+
+
+    @Test
+    public void testFile(){
+        File file = new File("d://jmh.log");
+        System.out.println(file.getName());
+    }
     /**
      * 返回所有字段
      *
